@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>eMercado - Todo lo que busques está aquí</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sell.html">Vender</a>
+                    </li>
+                    <li class="nav-item" dropdown> <!--Creamos el boton desplegable-->
+                        <a class="nav-link dropdown-toggle" href="#" id="usuarioDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span id="usuario"></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="usuarioDropdown"> <!--Creamos el desplegable con sus opciones-->
+                            <button class="dropdown-item" id="btnTema">Modo día/Modo noche</button>
+                            <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+                            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="login.html" id="cerrarSesion">Cerrar Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container text-center">
+            <!-- Contenido principal -->
+        </div>
+        <br>
+        <hr>
+        <!-- Inicio Entrega 5 Punto 2 -->
+        <div id="datosDeEnvio" class="container">
+            <form id="formularioEnvioCliente"> <!--Se crea el formulario con los datos requeridos-->
+                <div id="tipoDeEnvio"> <!--Seleccionar tipo de envio-->
+                    <h3>Tipo de envío</h3>
+                    <br>
+                    <div>
+                        <input type="radio" id="premium" name="envio">
+                        <label>Premium 2 a 5 días (15%)</label>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="radio" id="express" name="envio">
+                        <label>Express 5 a 8 días (7%)</label>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="radio" id="standard" name="envio">
+                        <label>Standard 12 a 15 días (5%)</label>
+                    </div>
+                    <div id="errorEnvio" class="error-message"></div><!--Mensaje de error de envio-->
+                </div>
+
+                <div class="row mt-5" id="direccionDeEnvio">
+                    <h3>Dirección de envío</h3>
+                    <div class="col">
+                        <label>Calle</label>
+                        <input type="text" class="form-control mt-0" id="calle" placeholder="ej: 18 de julio" required>
+                        <div id="errorCalle"></div>  <!--Mensaje de error -->
+                      </div>
+                      
+                      <div class="col">
+                        <label>Numero</label>
+                        <input type="text" class="form-control" id="numero" placeholder="ej: 1234">
+                        <div id="errorNumero"></div><!--Mensaje de error -->
+                      </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                      <div class="col">
+                        <label>Esquina</label>
+                        <input type="text" class="form-control" id="esquina" placeholder="ej: L. A. de Herrera" required>
+                        <div id="errorEsquina"></div> <!--Mensaje de error -->
+                      </div>
+                </div>
+            </form>
+        </div>
+        <br>
+        <!--Fin Entrega 5 Punto 2-->
+        <hr>
+
+<!-- Entrega 6 Punto 1-->
+
+        <div> <!--Visual sobre donde se calculan Subtotal, Costo de envio y Total-->
+            <h3 id="cuadroCostos">Costos</h3>
+            <br>
+            <div id="cuadroCostos" class="card-container">
+                <div class="div-cards row container" id="subtotal">
+                    <h5>Subtotal</h5>
+                    <p>Costo unitario del producto por cantidad</p>
+                    <span class="price col-sm-12 col-md-12 subtotaldeTodos">0</span>
+                </div>
+                <div class="div-cards row container" id="costoenvio">
+                    <h5>Costo de envío</h5>
+                    <p>Según el tipo de envío</p>
+                    <span class="price col-sm-12 col-md-12 subtotaldeEnvio">USD</span>
+                </div>
+                <div class="div-cards row container" id="total">
+                    <h5>Total($)</h5>
+                    <span class="price col-sm-12 col-md-12 totaldeTodo">USD</span>
+                </div>
+            </div>
+
+<!-- Fin Entrega 6 Punto 1-->
+
+            <br>
+            <br>
+        </div>
+        <hr>
+        <div class="container">
+            <h3>Forma de pago</h3>
+            <br />
+            No ha seleccionado
+            <a type="button" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-whatever="@mdo">Seleccionar
+            </a>
+        </div>
+        <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true"> <!--Creamos el modal-->
+            <div class="modal-dialog" role="document">
+                <div class="modal-content"> <!--Contenido del modal-->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="container">
+                                    <div>
+                                        <input type="radio" id="checkTarjeta" name="transferencia"
+                                            value="tarjetaCredito" />
+                                        <label for="tarjetaCredito" class="text-secondary">Tarjeta de crédito</label>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <label for="recipient-name" class="text-secondary col-form-label ">Número de
+                                                tarjeta</label>
+                                            <input type="text" class="form-control campos-tarjeta" id="nroTarjeta" disabled/>
+                                        </div>
+                                        <div class="col-sm">
+                                            <label for="recipient-name" class="text-secondary col-form-label ">Código de
+                                                seguridad</label>
+                                            <input type="text" class="form-control campos-tarjeta" id="codSeguridad" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <label for="recipient-name"
+                                                class="text-secondary col-form-label">Vencimiento (MM/AA)</label>
+                                            <input type="text" class="form-control col-1 campos-tarjeta" id="fechaVencimiento"  disabled/>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="checkTransferencia" name="transferencia"
+                                            value="transfBancaria"/>
+                                        <label class="text-secondary mt-3" for="transfBancaria">Transferencia
+                                            bancaria</label>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <label for="recipient-name" class="text-secondary col-form-label">Número de
+                                                cuenta</label>
+                                            <input type="text" class="form-control campos-transferencia" id="nrodeCuenta" disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            Cerrar
+                        </button>                        
+                    </div>
+                </div>
+            </div>
+        </div> <!--Termina el modal-->
+        <div id="errorFormaPago" class="error-message container"></div> <!--Mensaje de error-->
+        <button  class="btn btn-success mt-4"  type="button" id="FinalizarCompra" >Finalizar Compra</button>
+        <div id="mensajeCompraExitosa" class="alert alert-success mt-3" style="display: none;">
+            Compra exitosa.
+        </div> <!--Mensaje de compra exitosa-->
+    </main>
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-end">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>
+                Este sitio forma parte de
+                <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+            </p>
+        </div>
+    </footer>
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+             crossorigin="anonymous">
+    </script>
+    <script src="http://localhost:3000/server.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
