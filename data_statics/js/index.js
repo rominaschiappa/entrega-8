@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
+// chequea si el usuario está o no logeado
 function isLoggedIn() {
     let dato = localStorage.getItem("email");
     if (dato){
@@ -35,7 +36,7 @@ document.getElementById("cerrarSesion").addEventListener("click", function() {
     cerrarSesion();
 } );
 
-
+// este evento de escucha se activa cuando la pag se carga y verifica si el usuario inició sesión con isloggedin
 window.addEventListener('load', function() {
     if (!isLoggedIn()) {
         window.location.href = 'login.html';
@@ -72,6 +73,9 @@ btnTema.addEventListener('click', toggleTheme);
 
 
 //Mostrar email como boton en Nav
+
+//una vez que está chequeado si el usuario inició sesión, recupera el email desde el local
+// y lo almacena en la variable email
 let email = localStorage.getItem("email"); // <- email = "emilianopintos18@gmail.com"
 let li_nav = document.getElementById("usuario");
 li_nav.innerHTML = `<span class="nav-link">${email}</span>`;
